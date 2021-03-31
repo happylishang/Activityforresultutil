@@ -33,3 +33,62 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
 
 }
+
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                // Add your description here
+                name 'android performance monitor'     //项目的描述 你可以多写一点
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'snail'        //填写的一些基本信息
+                        name 'snail'
+                        email 'happylishang2956@gmail.com'
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = "happylishang2956"
+    key = ''
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = "activityforresult"
+        licenses = ["Apache-2.0"]
+        userOrg = "happysnail"
+        publish = true
+        vcsUrl = 'https://github.com/happylishang/Collie'
+    }
+}
+
+
+version = '1.0.0'
+group = 'com.snail'
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives sourcesJar
+}
