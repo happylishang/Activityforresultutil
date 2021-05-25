@@ -10,7 +10,7 @@ task androidSourcesJar(type: Jar) {
 }
 
 ext {
-    PUBLISH_GROUP_ID = 'com.snail'
+    PUBLISH_GROUP_ID = 'io.github.snail'
     PUBLISH_ARTIFACT_ID = 'activityforresult'
     PUBLISH_VERSION = '1.0.0'
 }
@@ -22,6 +22,7 @@ ext["ossrhUsername"] = ''
 ext["ossrhPassword"] = ''
 
 File secretPropsFile = project.rootProject.file('local.properties')
+
 if (secretPropsFile.exists()) {
     println "Found secret props file, loading props"
     Properties p = new Properties()
@@ -48,9 +49,9 @@ publishing {
             // Self-explanatory metadata for the most part
             pom {
                 name = PUBLISH_ARTIFACT_ID
-                description = '描述信息'
+                description = 'Activity start for result util'
                 // If your project has a dedicated site, use its URL here
-                url = '官网'
+                url = 'https://github.com/happylishang/activityforresultutil'
                 licenses {
                     license {
                         //协议类型，一般默认Apache License2.0的话不用改：
@@ -60,18 +61,16 @@ publishing {
                 }
                 developers {
                     developer {
-                        id = 'sonatype注册的用户名'
-                        name = 'sonatype注册的用户名'
-                        email = 'sonatype注册的邮箱'
+                        id = 'BookSnail'
+                        name = 'BookSnail'
+                        email = 'happylishang@163.com'
                     }
                 }
                 // Version control info, if you're using GitHub, follow the format as seen here
                 scm {
                     //修改成你的Git地址：
-                    connection = 'scm:git:项目git地址'
-                    developerConnection = 'scm:git:项目git ssh地址'
-                    //分支地址：
-                    url = '分支'
+                    connection = 'https://github.com/happylishang/activityforresultutil.git'
+                    developerConnection = 'https://github.com/happylishang/activityforresultutil.git'
                 }
                 // A slightly hacky fix so that your POM will include any transitive dependencies
                 // that your library builds upon
