@@ -35,6 +35,9 @@ dependencies {
 }
 
 
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
 
 apply plugin: 'maven'
 task sourcesJar(type: Jar) {
