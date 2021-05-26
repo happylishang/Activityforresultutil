@@ -71,6 +71,7 @@ publishing {
                     //修改成你的Git地址：
                     connection = 'https://github.com/happylishang/activityforresultutil.git'
                     developerConnection = 'https://github.com/happylishang/activityforresultutil.git'
+                    url = 'https://github.com/happylishang/activityforresultutil'
                 }
                 // A slightly hacky fix so that your POM will include any transitive dependencies
                 // that your library builds upon
