@@ -5,7 +5,8 @@
 用法：
 
  1
-    implementation 'com.netease.yanxuan:activityforresult:0.0.1'
+       implementation ('io.github.happylishang:activityforresult:1.0.0')
+
 
  2
         ActivityForResultUtil.startActivityForResult(activity,new Intent(activity,BActvityClass.class, new OnActivityResultListener() {
